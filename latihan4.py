@@ -5,12 +5,15 @@
 PASS = "Latihan"  
 USER = "Daspro2023"  
 
-def check_login(stored_password, attempts=3):
-    """Fungsi untuk memeriksa login password dengan jumlah kesempatan tertentu."""
+def check_login(stored_username, stored_password, attempts=3):
     
-    input_username = input("Masukkan username: ")
-
     for i in range(attempts):
+        input_username = input("Masukkan username: ")
+
+        if input_username != stored_username:
+            print("Username salah!")
+            continue 
+
         input_password = input("Masukkan password: ")
 
         if input_password == stored_password:
@@ -27,7 +30,5 @@ def check_login(stored_password, attempts=3):
     return False
 
 print("=== Selamat Datang di Sistem Login ===")
-is_logged_in = check_login(PASS)
+is_logged_in = check_login(USER, PASS)
 print("=== Program selesai ===")
-
-
